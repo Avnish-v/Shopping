@@ -1,0 +1,16 @@
+------about the /cart request ------------
+ 1.if the cart have the query  of check  then its for the cart only  ..
+2.if the cart doesn't have the query of check then it is wishlist...
+3. the code is provide only for removal of cart and wishlist ...
+4. tk is the user token..
+5. id is the product id  ... 
+
+
+. learn how to make the search optimistic for the mongdb database 
+. learn or add the  payment option 
+.  add the after payment  ../ by adding the order 
+. 
+
+agar user naya h toh uska product banega ........XX
+
+and if user already exist 
