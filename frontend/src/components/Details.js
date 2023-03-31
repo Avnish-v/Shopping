@@ -1,40 +1,37 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Suggest from './Suggest'
+import { useState } from 'react'
 const Details = (props) => {
     const {img,description,id,brand, price,name} =  props
+    const [second ,setsecond] =  useState(0);
+
   return (
     <>
-{/* <div id="carouselExampleControls" className="carousel slide" data-mdb-ride="carousel">
-  <div className="carousel-inner">
-    <div className="carousel-item ">
-      <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" className="d-block w-100" alt="Wild Landscape"/>
+<div className="container my-5" >
+  <div className="row">
+    <div className="col-md-6" >
+    <a href="#" class="previous round" style={{ textDecoration: "none",
+  display: "inline-block",
+  padding: "8px 16px",borderRadius:"50%",backgroundColor:"grey",color:"white",marginRight:"95px",marginLeft:"-60px"}} onClick={()=>{setsecond(0)}}>&#8249;</a>
+      <img src={`http://localhost:3000`+ img[second].slice(18)}  className="img-fluid" style={{borderRadius:"22px",marginLeft:"-90px" ,width:"95%", height:"90%"}}/>
+      <a href="#" class="next round" style={{ textDecoration: "none",
+  display: "inline-block",
+  padding: "8px 16px",borderRadius:"50%",backgroundColor:"grey",color:"white",marginLeft:"12px"}} onClick={()=>{setsecond(1)}}>&#8250;</a>
     </div>
-    <div className="carousel-item ">
-      <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" className="d-block w-100" alt="Camera"/>
-    </div>
-    <div className="carousel-item active">
-      <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" className="d-block w-100" alt="Exotic Fruits"/>
+    <div className="col-md-5 my-6 center">
+      <h1>{name}</h1>
+      <hr/>
+      <h2> {brand}</h2>
+      <hr/>
+     <p className='text-muted' ><b>Description</b></p> <p>{description}</p>
+      <h2>price-: {price}₹</h2>
+        <Link to={localStorage.status === "logout" ? `/AddToCart/?id=${id}`:`/login`}className="btn btn-danger">add to cart</Link>
+    <Link to ={localStorage.status === "logout" ? `/WishList/?id=${id}`:`/login`}><i className="fa fa-heart-o mx-4" style={{textDecoration : "none" , color:"red" , fontSize:"1.8rem" , marginTop:"2px"}} aria-hidden="true" ><button  style = {{display:"none"}}></button></i></Link>
+      
     </div>
   </div>
-  <button className="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Next</span>
-  </button>
-
-</div> */}
- <div className='mx-4  my-3'>
- <img src={img[0].slice(18)}  width = "400" height = "450"alt="error"/>
- <h2>{name}</h2>
- <h2><b>{brand}</b></h2>{price}*inr
- <p>{description}</p>
- </div>
- {/* <Suggest/> */}
-        </>
+</div>
+ </>
   )
 }
 

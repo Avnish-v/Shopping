@@ -2,13 +2,16 @@ import {React,useState} from 'react'
 import { Link } from 'react-router-dom'
 import PayButton from './PayButton'
 const Item = (props) => {
-  // const [status,setstatus] =  status("null");
+  const [Seconds,setSeconds] =  useState(0);
   const {id,description,alt,price,name,img,brand}= props
   return (
     <>
    <Link to={`/ProductDet/?id=${id}`} style={{ textDecoration:"none"}}>
     <div className="card" style={{ width: "18rem", backgroundColor: "#212529" ,borderRadius:"12px" ,borderColor:"black"}} >
-  <img src={img.slice(18)} width="100" height="165" className="card-img-top" alt={alt}/>
+  <img src={img[Seconds].slice(18)} width="100" height="165" className="card-img-top" alt={alt}   onMouseOver={ () => {
+                  setSeconds(1)}}
+                onMouseOut={ () => {
+                  setSeconds(0)}}/>
   <div className="card-body " style={{backgroundColor:"#212529" , color:"white" ,borderRadius:"12px"}}>
     <h5 className="card-title">{name.length <=  19 ? name : name.slice(-20)}</h5>{price}
     <p className="card-text"><b>{brand}</b></p>

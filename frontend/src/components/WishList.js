@@ -1,190 +1,84 @@
-import React from 'react'
+import {React,useEffect,useState} from 'react'
+import { Link } from 'react-router-dom'
+import Wishlisitem from './Wishlisitem'
 
 const WishList = (props) => {
   const {data}  =  props
-  return (
+  const params = new URLSearchParams(window.location.search)
+  let URLDATA = params.get('id')
+  const [saveData, setsaveData] = useState([]);
+  const remove = async (productId) => {
+    let localstorage = localStorage.getItem('token');
+    if(localstorage &&  productId){
+      let response = await fetch(
+        `http://localhost:8080/api/auth//wishlist/?token=${localstorage}&productId=${productId}`,
+        {
+          method: 'DELETE',
+        }
+        );
+        response  =  await response.json();
+        SendData();
+    }
+  };
 
+  const SendData =  async ()=>{
+    let localstorage = localStorage.getItem("token");
+  let send =  await fetch(`http://localhost:8080/api/auth/wishlistCart/?token=${localstorage} `,{method :"GET",});
+ let response =  await send.json();
+ let data = response.reverse;
+ data = data[0]
+ let filteredData = [];
+ data.forEach((element) => {
+   // Check if productId already exists in the array
+   if (!filteredData.find((item) => item.productId === element.productId)) {
+     filteredData.push(element);
+   }
+ });
+ setsaveData(filteredData);
+  }
+  //!this will be use on another page...
+  const  productdata =  async ()=>{
+    if(URLDATA){
+      let localstorage = localStorage.getItem("token");
+      let response  =  await fetch(`http://localhost:8080/api/auth/wishlist/?productId=${URLDATA}&token=${localstorage}`,{method : "post",})
+      response = await response.json();
+      console.log("the product added",response)
+      SendData();
+    }
+      } 
+     useEffect(() => {
+       productdata();
+SendData();
+}, [])
+  return (
     <>
-    
-    <section className="h-100" style={{backgroundColor: "#eee"}}>
+    <section className="h-100" >
   <div className="container h-100 py-5">
     <div className="row d-flex justify-content-center align-items-center h-100">
       <div className="col-10">
 
         <div className="d-flex justify-content-between align-items-center mb-4">
-          <h3 className="fw-normal mb-0 text-black">wishlist♥</h3>
-          <div>
-            <p className="mb-0"><span className="text-muted">Sort by:</span> <a href="#!" className="text-body">price <i
-                  className="fas fa-angle-down mt-1"></i></a></p>
-          </div>
+          <h3 className="fw-normal mb-0 text-dark">wishlist♥</h3>
         </div>
+        {saveData.length != 0? saveData.map(element => {
+       return <div className="card rounded-3 mb-4" key={element.productId} >     
+<Wishlisitem
+productId={element.productId}
+Name = {element.Name}
+img = {element.img}
+price = {element.price}
+remove = {remove}
+/>
+</div>
 
-        <div className="card rounded-3 mb-4">
-          <div className="card-body p-4">
-            <div className="row d-flex justify-content-between align-items-center">
-              <div className="col-md-2 col-lg-2 col-xl-2">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                  className="img-fluid rounded-3" alt="Cotton T-shirt"/>
-              </div>
-              <div className="col-md-3 col-lg-3 col-xl-3">
-                <p className="lead fw-normal mb-2">Basic T-shirt</p>
-                <p><span className="text-muted">Size: </span>M <span className="text-muted">Color: </span>Grey</p>
-              </div>
-              <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button className="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                  <i className="fas fa-minus"></i>
-                </button>
-
-                <input id="form1" min="0" name="quantity" value="2" type="number"
-                  className="form-control form-control-sm" />
-
-                <button className="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                  <i className="fas fa-plus"></i>
-                </button>
-              </div>
-              <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 className="mb-0">$499.00</h5>
-              </div>
-              <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" className="text-danger"><i className="fas fa-trash fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="card rounded-3 mb-4">
-          <div className="card-body p-4">
-            <div className="row d-flex justify-content-between align-items-center">
-              <div className="col-md-2 col-lg-2 col-xl-2">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                  className="img-fluid rounded-3" alt="Cotton T-shirt"/>
-              </div>
-              <div className="col-md-3 col-lg-3 col-xl-3">
-                <p className="lead fw-normal mb-2">Basic T-shirt</p>
-                <p><span className="text-muted">Size: </span>M <span className="text-muted">Color: </span>Grey</p>
-              </div>
-              <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button className="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                  <i className="fas fa-minus"></i>
-                </button>
-
-                <input id="form1" min="0" name="quantity" value="2" type="number"
-                  className="form-control form-control-sm" />
-
-                <button className="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                  <i className="fas fa-plus"></i>
-                </button>
-              </div>
-              <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 className="mb-0">$499.00</h5>
-              </div>
-              <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" className="text-danger"><i className="fas fa-trash fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="card rounded-3 mb-4">
-          <div className="card-body p-4">
-            <div className="row d-flex justify-content-between align-items-center">
-              <div className="col-md-2 col-lg-2 col-xl-2">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                  className="img-fluid rounded-3" alt="Cotton T-shirt"/>
-              </div>
-              <div className="col-md-3 col-lg-3 col-xl-3">
-                <p className="lead fw-normal mb-2">Basic T-shirt</p>
-                <p><span className="text-muted">Size: </span>M <span className="text-muted">Color: </span>Grey</p>
-              </div>
-              <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button className="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                  <i className="fas fa-minus"></i>
-                </button>
-
-                <input id="form1" min="0" name="quantity" value="2" type="number"
-                  className="form-control form-control-sm" />
-
-                <button className="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                  <i className="fas fa-plus"></i>
-                </button>
-              </div>
-              <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 className="mb-0">$499.00</h5>
-              </div>
-              <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" className="text-danger"><i className="fas fa-trash fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="card rounded-3 mb-4">
-          <div className="card-body p-4">
-            <div className="row d-flex justify-content-between align-items-center">
-              <div className="col-md-2 col-lg-2 col-xl-2">
-                <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                  className="img-fluid rounded-3" alt="Cotton T-shirt"/>
-              </div>
-              <div className="col-md-3 col-lg-3 col-xl-3">
-                <p className="lead fw-normal mb-2">Basic T-shirt</p>
-                <p><span className="text-muted">Size: </span>M <span className="text-muted">Color: </span>Grey</p>
-              </div>
-              <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                <button className="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                  <i className="fas fa-minus"></i>
-                </button>
-
-                <input id="form1" min="0" name="quantity" value="2" type="number"
-                  className="form-control form-control-sm" />
-
-                <button className="btn btn-link px-2"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                  <i className="fas fa-plus"></i>
-                </button>
-              </div>
-              <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 className="mb-0">$499.00</h5>
-              </div>
-              <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                <a href="#!" className="text-danger"><i className="fas fa-trash fa-lg"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="card mb-4">
-          <div className="card-body p-4 d-flex flex-row">
-            <div className="form-outline flex-fill">
-              <input type="text" id="form1" className="form-control form-control-lg" />
-              <label className="form-label" for="form1">Discound code</label>
-            </div>
-            <button type="button" className="btn btn-outline-warning btn-lg ms-3">Apply</button>
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="card-body">
-            <button type="button" className="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
-          </div>
-        </div>
-
+}):<h1 className='center text-center'>Nothing in the WishList <i class="fa fa-times" style={{color:"red"}} aria-hidden="true"></i>
+</h1> }
+ <div className=' card-body center d-flex justify-content-center'><Link to="/"><button className='btn btn-warning btn-block btn-lg center'> Please Add  Items </button></Link></div>
+</div>  
       </div>
     </div>
-  </div>
-</section>
-    </>
+</section> 
+   </>
   )
 }
-
-export default WishList
+export default WishList 

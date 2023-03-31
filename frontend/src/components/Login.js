@@ -29,6 +29,7 @@ const Login = () => {
           
           localStorage.setItem('token',json.AuthToken );
             localStorage.setItem('status',"logout")
+            localStorage.setItem("role","Admin");
             history('/Admin')
             alert("login successfully")
         }else

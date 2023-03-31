@@ -4,7 +4,7 @@ const path = require("path")
 const app = express.Router();
 const FetchUser = require("../middleware/FetchUser");
 const uuid = require("uuid.v4")
-const productModel = require("../models/ShopingModel");
+const productModel = require("../models/productModel");
 let result = false;
 const storageMulter = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -183,6 +183,23 @@ const Suggestion   =  await productModel.find({type})
 res.json({action :"true" ,   "data":[user] ,Suggestion})
 })
 
+
+app.get("/search/:key", async (req, res) => {
+    try {
+      
+      let product = await productModel.find({
+        $or: [
+          { name: { $regex: req.params.key } },
+          { brand: { $regex: req.params.key } },
+          { type: { $regex: req.params.key } },
+          { gender: { $regex: req.params.key } },
+        ],
+      });
+      res.json({ data: product });
+    } catch (error) {
+      res.json({ error });
+    }
+  });
 
 
 module.exports = app;

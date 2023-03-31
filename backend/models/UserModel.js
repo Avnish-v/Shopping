@@ -7,7 +7,7 @@ const User = new mongoose.Schema({
     password: { type: String, required: true },
     phone: { type: Number, required: true },
     date: { type: Date, default: Date.now },
-    wishlist:{type:Array},
+   
 })
 
 const user = mongoose.model("user", User);

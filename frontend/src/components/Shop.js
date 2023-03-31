@@ -19,7 +19,7 @@ useEffect(() => {
       <Item 
     name = {element.name}
     price = {element.price}
-    img = {element.img[0]}
+    img = {element.img}
     description = {element.description}
     id = {element._id}
     brand={element.brand}

@@ -11,6 +11,7 @@ import About from "./components/About";
 import CheckoutSucess from "./components/CheckoutSucess";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
+import Search from "./components/Search";
 function App() {
   if(!localStorage.getItem("status")){
     localStorage.setItem("status","login")
@@ -26,6 +27,7 @@ function App() {
     <Route exact path="/Signup" element={<SignUp/>}/>
     {/* <Route exact path="/Admin" element={</Admin >{"}"}/> */}
     <Route exact path="/About" element={<About/>}/>
+    <Route exact path="/search" element={<Search/>}/>
       <Route exact path="/Mens" element={<Shop  key="mens"  link="men"/>}/>
       <Route exact path="/Womens"  element={<Shop  key="womens" link="women"/>}/>
       <Route exact path="/Unisex"  element={<Shop  key="Unisex" link="unisex"/>}/>

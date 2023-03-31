@@ -6,12 +6,18 @@ import Alert from './Alert';
 const CheckoutSucess = () => {
   let history  =  useNavigate();
   const token  =  localStorage.getItem("token");
+  const deleteTheCart =  async ()=>{
+    let deleteCart  =  await fetch(`http://localhost:8080/api/auth/RemoveCart/?token=${token}`,{method:"DELETE"});
+    deleteCart = deleteCart.json();
+  }
   useEffect(() => {
+    deleteTheCart();
     setTimeout(() => {
-      history("/")
+      history("/order")
       
     }, 3000);
   }, [])
+
 
   
   return (

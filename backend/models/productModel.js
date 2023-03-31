@@ -9,10 +9,6 @@ const shop = new mongoose.Schema({
     gender: { type: String, required: true },
     type: { type: String, default: "general" },
     brand: { type: String, required: true },
-    issue: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "user",
-    }
 })
 
 const productModel = mongoose.model("productModel", shop);

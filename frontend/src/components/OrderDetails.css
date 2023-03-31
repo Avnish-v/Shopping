@@ -1,0 +1,70 @@
+.order-details-container {
+    padding: 10px;
+    background-color: #f7f7f7;
+    
+  }
+  
+  .order-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-radius: 22px;
+  }
+  
+  .order-number {
+    font-size: 20px;
+    margin: 0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .order-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .order-date p,
+  .order-total p {
+    margin: 0;
+  }
+  
+  /* .order-items {
+    display: flex;
+    flex-wrap: wrap;
+  } */
+  
+  .order-item {
+    display: flex;
+    margin: 10px;
+    width: calc(33.33% - 20px);
+    border: 1px solid #ddd;
+    justify-content: center;
+    justify-items: center;
+    padding: 10px;
+  }
+  
+  .order-item:last-child {
+    margin-right: 0;
+  }
+  
+  .item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .item-info {
+    flex: 1;
+  }
+  
+  .item-info h3 {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .item-info p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
