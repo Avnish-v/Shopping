@@ -24,7 +24,7 @@ const PayButton = ({cartitem}) => {
         // console.log(response);
     }
   return (
-    <button className='btn btn-warning btn-block btn-lg' onClick={()=>{handleCheckOut()}}>Proceed to Pay</button>
+    <button className='btn btn-warning btn-block btn-lg' onClick={()=>{handleCheckOut()}}><i class="fa fa-credit-card" aria-hidden="true"></i>     Proceed to Pay</button>
   )
 }
 

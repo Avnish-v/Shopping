@@ -1,7 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import Alert from './Alert';
+
+import Check from "./Check.gif";
+import Sound from "./Pay.mp3";
 
 const CheckoutSucess = () => {
   let history  =  useNavigate();
@@ -10,7 +12,12 @@ const CheckoutSucess = () => {
     let deleteCart  =  await fetch(`http://localhost:8080/api/auth/RemoveCart/?token=${token}`,{method:"DELETE"});
     deleteCart = deleteCart.json();
   }
+  function play (){
+    new Audio(Sound).play();
+  }
+ 
   useEffect(() => {
+    play();
     deleteTheCart();
     setTimeout(() => {
       history("/order")
@@ -22,8 +29,16 @@ const CheckoutSucess = () => {
   
   return (
     <>
-    {console.log(token)}
-   <Alert msg={"checkout sucessful"} type={"success"}></Alert>
+    <div className='h-100 d-flex align-items-center justify-content-center my-4'>
+    <h2><b>checkout successful thankyou for choosing Dres</b><b style={{color:"green"}}>Wel</b></h2>
+
+    </div>
+    <div class="h-100 d-flex align-items-center justify-content-center my-2" >
+ <img   style={{marginTop:'4rem',height:"10rem" ,width:"10rem"}} src={Check}></img>
+ 
+ </div>
+   
+  
     </>
   )
 }

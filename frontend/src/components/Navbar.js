@@ -1,8 +1,14 @@
-import {React,useState}from 'react'
+import {React,useState,useEffect}from 'react'
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [search, setsearch] = useState("");
+  const [keys , setkeys] =  useState(props.User)
+  useEffect(() => {
+    setkeys(props.User);
+    
+  }, [keys])
+  
 
   return (  
     
@@ -16,7 +22,7 @@ const Navbar = () => {
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-  {  localStorage.getItem("role") != "Admin"?  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+  {  keys != "Admin"?  <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/Mens">Mens</Link>
         </li> 
@@ -38,28 +44,28 @@ const Navbar = () => {
             <li><Link className="dropdown-item" to={localStorage.status ==="logout" ? `/WishList` :`/login`}>WishList</Link></li>
             <li><Link className="dropdown-item" to={localStorage.status ==="logout" ? `/order` :`/login`}>order</Link></li>
             <li><hr className="dropdown-divider"/></li>
-            <li><Link className="dropdown-item"  onClick={()=>{ localStorage.removeItem("token")
+            <li><a className="dropdown-item"  onClick={()=>{ localStorage.removeItem("token")
           localStorage.removeItem("status")
           localStorage.removeItem("role");
-          }} to="/Login"> {localStorage.status === "logout" ? "logout" : "login"}</Link></li>
+          }} href="/Login"> {localStorage.status === "logout" ? "logout" : "login"}</a></li>
           </ul>
         </li>
       </ul>:<  >
       <li className="nav-item"  >
-          <Link className="nav-link " aria-current="page" style={{color:"white"}} to="/Mens">Add Products</Link>
+          <Link className="nav-link " aria-current="page" style={{color:"white"}} to="/"> Add Products</Link>
         </li> 
         <li className="nav-item" style={{color:"black"}}>
-          <Link className="nav-link " aria-current="page" style={{color:"white"}}  to="/Womens">remove Products</Link>
+          <Link className="nav-link " aria-current="page" style={{color:"white"}}  to="/AllProduct">remove Products</Link>
         </li>
         <li className="nav-item" style={{color:"black"}}>
-          <Link className="nav-link " to="/Unisex" style={{color:"white"}}  >Edit products</Link>
+          <Link className="nav-link " to="/outofstock" style={{color:"white"}}  >OUT-OF-STOCK</Link>
         </li>
-        <li className='nav-item'style={{color:"black"}}><Link className="nav-link " style={{color:"white"}}   onClick={()=>{ localStorage.removeItem("token")
+        <li className='nav-item'style={{color:"black"}}><a className="nav-link " style={{color:"white"}}   onClick={()=>{ localStorage.removeItem("token")
           localStorage.removeItem("status")
           localStorage.removeItem("role");
-          }} to="/Login"> {localStorage.status === "logout" ? "logout" : "login"}</Link></li>
+          }} href="/Login"> {localStorage.status === "logout" ? "logout" : "login"}</a></li>
       </>}
-     {localStorage.getItem("role") != "Admin"? <form className="d-flex" action='/search'>
+     {keys != "Admin"? <form className="d-flex" action='/search'>
         <input className="form-control me-2"  name="search" id ="search" type="search" placeholder="Search" aria-label="Search"   onChange={(event) =>
           setsearch(event.target.value)
         } />

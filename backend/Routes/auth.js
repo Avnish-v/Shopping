@@ -110,7 +110,7 @@ app.get("/cart", async (req, res) => {
      
       // user have the Cart or not --- with userID field
       let extractProduct = await productModel.findById(productId);
-      let  {price ,img} = extractProduct;
+      let  {price ,img,stock} = extractProduct;
       let Name  = extractProduct.name;
       if(!quantity){
 
@@ -129,7 +129,7 @@ app.get("/cart", async (req, res) => {
           }
         } else {
           // Product does not exist in cart, add it
-          let newProduct = { productId, quantity:1, price, img, Name };
+          let newProduct = { productId, quantity:1, price, img, Name,stock };
           UserExist.products.push(newProduct);
         }
         UserExist = await UserExist.save();
@@ -138,7 +138,7 @@ app.get("/cart", async (req, res) => {
         // idhar per user ka cart he nhi h toh naya banya hai
         const newCart = await cart.create({
           UserId,
-          products: [{ productId, quantity:1, price, img, Name }],
+          products: [{ productId, quantity:1, price, img, Name,stock }],
         });
         console.log(newCart)
         return res.status(201).json(newCart);
@@ -179,14 +179,14 @@ if(token && productId){
   const { id: userId } = jwt.decode(token);
   let userWishlist = await WishList.findOne({ UserId:userId });
   let Product =  await productModel.findById(productId);
-  const { name,price,img} = Product;
+  const { name,price,img,stock} = Product;
 
  
     if (!userWishlist) {
       //the userWishlist not exist we will create new
       const newWishlist = await WishList.create({
         UserId:userId,
-        products: [{ Name : name , price , img ,productId }],
+        products: [{ Name : name , price , img ,productId,stock }],
       });
       return res.status(201).json({"created":"new"});
     } else {
@@ -195,7 +195,7 @@ if(token && productId){
       if (productExists) {
         return res.status(400).json({ error: 'This product is already in your wishlist.' });
       } else {
-        userWishlist.products.push({  Name : name , price , img ,productId });
+        userWishlist.products.push({  Name : name , price , img ,productId,stock });
         await userWishlist.save();
         return res.status(200).json({"added":"addeds"});
       }
@@ -258,7 +258,9 @@ app.delete('/wishlist', async (req, res) => {
     try {
         let token  =  req.query.token;
         let userid= jwt.decode(token).id;
+
       if(userid){
+        
         let UserCart  =  await WishList.find()
         let carts = new Array();
     UserCart.forEach(Element=>{
@@ -280,9 +282,8 @@ app.delete('/wishlist', async (req, res) => {
   //!order details ............
   app.get("/orderDetails",async (req,res)=>{
     try {
-      console.log("jenjd")
+     
       const token =  req.query.token;
-      console.log(token)
      
       const UserId = jwt.decode(token).id;
       let FindUserID  = await OrderModel.find();
@@ -291,6 +292,7 @@ app.delete('/wishlist', async (req, res) => {
       let Totalquantity
       let status
       let timestamps 
+      let uName 
       FindUserID.forEach(element =>{
       
         if(element.userId === UserId){
@@ -298,13 +300,14 @@ app.delete('/wishlist', async (req, res) => {
           Totalquantity = element.quantity,
           status=  element.status
 timestamps =element.createdAt
+uName =  element.UserName;
           
           order.push(element);
         }
       })
       if(order){
         order = order.reverse();
-        res.json({order, Totalquantity ,totalAmount,status,timestamps});
+        res.json({order, Totalquantity ,totalAmount,status,timestamps,uName});
       }
       
     } catch (error) {

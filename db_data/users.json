@@ -1,0 +1,176 @@
+[{
+  "_id": {
+    "$oid": "640acbe53c58907560724e5e"
+  },
+  "username": "Admin",
+  "address": "Admin user",
+  "email": "admin12@gmail.com",
+  "password": "$2a$10$7Xj2AUOvEfIl6CwonFJNX.rkbzcheeFhNs5w1dvuA0SHdpXTYbKuO",
+  "phone": {
+    "$numberLong": "8169930419"
+  },
+  "wishlist": [],
+  "date": {
+    "$date": "2023-03-10T06:19:17.988Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640b204fa7cb3047c5c8ae01"
+  },
+  "username": "Avnish",
+  "address": "dombivli",
+  "email": "tiwariavnish40@gmail.com",
+  "password": "$2a$10$eZTbrUUACYI5oxaS5dO5GeX2NEpwFerUlWW36yiqV0BJtnUeBQfx6",
+  "phone": {
+    "$numberLong": "8169930419"
+  },
+  "wishlist": [],
+  "date": {
+    "$date": "2023-03-10T12:19:27.319Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640c13132a39864e239fda95"
+  },
+  "username": "user",
+  "address": "user world",
+  "email": "user123@gmail.com",
+  "password": "$2a$10$BtSmpHAzCIra/EmqOxETI.sZYNfWseTjL1EMd6I63IFR2M9WX0dNW",
+  "phone": {
+    "$numberLong": "2345665432"
+  },
+  "wishlist": [],
+  "date": {
+    "$date": "2023-03-11T05:35:15.708Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640d831cee98e91b6aa164e0"
+  },
+  "username": "Avnish",
+  "address": "smdn",
+  "email": "avii@gmail.com",
+  "password": "$2a$10$gsb/wnNHQeMptmd54QqtROJeRUK821uy9kf/iOlyQnTz0551m0hjq",
+  "phone": {
+    "$numberLong": "9384758943"
+  },
+  "wishlist": [],
+  "date": {
+    "$date": "2023-03-12T07:45:32.833Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641592d1144409a388adc6bf"
+  },
+  "username": "newuser",
+  "address": "20njdndn",
+  "email": "newuser@gmail.com",
+  "password": "$2a$10$11yUuxEuJSCoisCqJugk2.FMx50laCQMWpd3vBHY0wKVuQz1oPwjm",
+  "phone": {
+    "$numberLong": "12345432342"
+  },
+  "wishlist": [],
+  "date": {
+    "$date": "2023-03-18T10:30:41.006Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64186280a54f3b9263540135"
+  },
+  "username": "parul",
+  "address": "20jdjfbh",
+  "email": "parul378@gmail.com",
+  "password": "$2a$10$DbPgsd2EC6mPFziJ.6Rc6OtTd9zG.ZOBPDeBukYrT2CzNUJtCV4S.",
+  "phone": {
+    "$numberLong": "34567545567"
+  },
+  "wishlist": [],
+  "date": {
+    "$date": "2023-03-20T13:41:20.162Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641f116ec769696cd7724c13"
+  },
+  "username": "avnish",
+  "address": "wdjfv",
+  "email": "avnish24@gmail.com",
+  "password": "$2a$10$dbNLfCSZpWz4jk3LHgjL7.Q/2sfiUK6tXD4vbPI4V0XHvmGYXXNoe",
+  "phone": {
+    "$numberLong": "8169930419"
+  },
+  "wishlist": [],
+  "date": {
+    "$date": "2023-03-25T15:21:18.704Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641f13570146009ed9a9c414"
+  },
+  "username": "shivani",
+  "address": "dnbsdfeg",
+  "email": "tiwarishivani12@gmail.com",
+  "password": "$2a$10$I1QbIXvtvvVvFIJw3C65TutSTb1lYpad71KXWWWcH4q8A17XBXCvK",
+  "phone": {
+    "$numberLong": "938475489302"
+  },
+  "wishlist": [],
+  "date": {
+    "$date": "2023-03-25T15:29:27.494Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6422db43c39f0e3259452f75"
+  },
+  "username": "divesh",
+  "address": "dsfbgn",
+  "email": "divesh@gmail.com",
+  "password": "$2a$10$/l20ygnGFbiFo3JMD2o8UuA/zj90r09Z6jYBt2e6uBw3kR.9surrW",
+  "phone": {
+    "$numberLong": "8169930419"
+  },
+  "wishlist": [],
+  "date": {
+    "$date": "2023-03-28T12:19:15.475Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6423eb4e271bec4db9696f29"
+  },
+  "username": "kiran more",
+  "address": "thane",
+  "email": "kiran12@gmail.com",
+  "password": "$2a$10$kr/y/oXehEYwJlK3xZMmu.3AmdbgcwOAlqZeEhN43ZLV5adzqglq6",
+  "phone": {
+    "$numberLong": "8169930419"
+  },
+  "wishlist": [],
+  "date": {
+    "$date": "2023-03-29T07:39:58.559Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6431136dbd33d0634625c651"
+  },
+  "username": "Avnish",
+  "address": "202 govind heights dombivli",
+  "email": "tiwariavnish24@gmail.com",
+  "password": "$2a$10$pZmf7gddTzDORnP4BnALUOi.ZXZDkBFjk8uF36MqL0dz/dIOxQTXq",
+  "phone": {
+    "$numberLong": "8169934019"
+  },
+  "date": {
+    "$date": "2023-04-08T07:10:37.348Z"
+  },
+  "__v": 0
+}]

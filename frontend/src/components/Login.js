@@ -30,7 +30,7 @@ const Login = () => {
           localStorage.setItem('token',json.AuthToken );
             localStorage.setItem('status',"logout")
             localStorage.setItem("role","Admin");
-            history('/Admin')
+            history('/')
             alert("login successfully")
         }else
         {
@@ -77,7 +77,7 @@ const Login = () => {
                  <div className="text-center pt-1 mb-5 pb-1">
                    <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" >Log
                      in</button>
-                   <a className="text-muted mx-2" href="#!">Forgot password?</a>
+                 
                  </div>
 
                  <div className="d-flex align-items-center justify-content-center pb-4">

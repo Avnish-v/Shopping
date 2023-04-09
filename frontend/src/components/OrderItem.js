@@ -10,9 +10,10 @@ const OrderItem = ({ orders }) => {
             return   <div key={item._id}> <h2 className="order-number">Order Number: {item._id} </h2>
           <div className="order-info">
             <div className="order-date">
-              <p>Date:</p>
-              <p>{item.date}</p>
-              {item.date.slice(0,10) === item.deliveryDate?<><p>Delivered <i class="fa fa-check-circle-o" style={{color:"green"}} aria-hidden="true"></i></p></>:<><p>GET IT BY</p><p>{item.deliveryDate}</p></>}
+              
+              <p>Date-:{item.date}</p>
+              {item.date.slice(0,10) === item.deliveryDate?<><p>Delivered <i class="fa fa-check-circle-o" style={{color:"green"}} aria-hidden="true"></i></p></>:<><p>GET IT BY:{item.deliveryDate}</p></>}
+              <p>Shipping-:{item.shipping}</p>
             </div>
             <div className="order-total">
               <p>Total:</p>
@@ -29,6 +30,7 @@ const OrderItem = ({ orders }) => {
                 <img className="item-image" src={`http://localhost:3000${item.img[0].slice(18)}`} alt={item.name} />
                 <div className="item-info">
                   <h3>{item.name}</h3>
+                 
                   <p>Quantity: {item.quantity}</p>
                   <p>Price: {item.price * item.quantity}</p>
                   {item.quantity !=1?<p>each-:{item.price}</p>:<></>}

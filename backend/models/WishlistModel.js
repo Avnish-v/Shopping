@@ -20,6 +20,9 @@ products: [
             type:String,
             required:true
         }
+        ,stock :{
+            type: Number,
+        }
         
     }
 

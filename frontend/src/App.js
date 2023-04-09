@@ -5,48 +5,71 @@ import WishList from "./components/WishList";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp"
 import ProductDet from "./components/ProductDet";
-import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
+import {BrowserRouter as Router,Routes,Route,Link,} from "react-router-dom";
 import Order from "./components/Order";
 import About from "./components/About";
 import CheckoutSucess from "./components/CheckoutSucess";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
 import Search from "./components/Search";
-function App() {
-  if(!localStorage.getItem("status")){
-    localStorage.setItem("status","login")
-  }
-  return (
-  <div >
-  <Router>
-    <Navbar />
-    <Routes>
-    <Route exact path="/" element={<Shop  key="items"  link="items" />}/>
-<Route exact path="/checkout-sucess" element={<CheckoutSucess  />}/>
-    <Route exact path="/login" element={<Login/>}/>
-    <Route exact path="/Signup" element={<SignUp/>}/>
-    {/* <Route exact path="/Admin" element={</Admin >{"}"}/> */}
-    <Route exact path="/About" element={<About/>}/>
-    <Route exact path="/search" element={<Search/>}/>
-      <Route exact path="/Mens" element={<Shop  key="mens"  link="men"/>}/>
-      <Route exact path="/Womens"  element={<Shop  key="womens" link="women"/>}/>
-      <Route exact path="/Unisex"  element={<Shop  key="Unisex" link="unisex"/>}/>
-       <Route exact path="/kids"  element={<Shop  key="kids" link="kids"/>}/>
-       <Route exact path="/ProductDet/"  element={<ProductDet key={window.location.id}/>}/>
-       <Route exact path="/AddToCart" element={<AddToCart  key={window.location.id}></AddToCart>}/>
-       <Route exact path="/WishList" element={<WishList  key={window.location.id}></WishList>}/>
-       <Route exact path="/order" element={<Order key={window.location.id}></Order>}/>
-       <Route exact path="*" element={<Error/>}/>
+import Stock from "./components/Admin/Stock";
+import ALLProduct from "./components/Admin/ALLProduct";
+import Admin from "./components/Admin/Admin";
+import { useState,useEffect} from "react";
 
-    </Routes>
+function App() {
+  const [User, setUser] = useState('User');
   
-  <Footer/>
-  </Router>
- 
-  </div>
+  useEffect(() => {
+    let role = localStorage.getItem("role");
+    if (role) {
+      setUser('Admin')
+    } else {
+      setUser('User')
+    }
+  }, [User]);
   
+  const userRoutes = [
+    { path: '/', element: <Shop key="items"  link="items" /> },
+    { path: '/checkout-sucess', element: <CheckoutSucess /> },
+    { path: '/signup', element: <SignUp /> },
+    { path: '/about', element: <About /> },
+    { path: '/search', element: <Search /> },
+    { path: '/mens', element: <Shop  key="mens"  link="men" /> },
+    { path: '/womens', element: <Shop  key="womens" link="women" /> },
+    { path: '/unisex', element: <Shop  key="Unisex" link="unisex" /> },
+    { path: '/kids', element: <Shop  key="kids" link="kids" /> },
+    { path: '/productdet', element: <ProductDet key={window.location.id} /> },
+    { path: '/addtocart', element: <AddToCart  key={window.location.id} /> },
+    { path: '/wishlist', element: <WishList key={window.location.id} /> },
+    { path: '/order', element: <Order /> },
+    { path: '*', element: <Error /> },
+  ];
+  
+  const adminRoutes = [
+    { path: '/', element: <Admin  /> },
+    {path : '/AllProduct', element: <ALLProduct key="items" link="items"/>},
+    { path: '/outofstock', element: <Stock /> },
+    { path: '*', element: <Error /> },
+  ];
+  
+  const routes = User === 'Admin' ? adminRoutes : userRoutes;
+  
+  return (
+    <div>
+      <Router>
+        <Navbar User={User} key={User} />
+        <Routes>
+        
+        <Route path="/login" element={<Login/>}/>
+          {routes.map(route => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
+        </Routes>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 
 export default App;
-

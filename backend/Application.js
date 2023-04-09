@@ -15,6 +15,7 @@ app.use(express.json());
 app.use("/api/auth", require("./Routes/auth"));
 app.use("/api/shop", require("./Routes/shop"));
 app.use("/api/payment" , require("./Routes/payment"));
+app.use("/api/Admin",require("./Routes/Admin"))
 app.use("/uploads", express.static("uploads"));
 
 //! listening   port 

@@ -23,6 +23,9 @@ products: [
         Name :{
             type:String,
             required:true
+        },
+        stock :{
+            type: Number,
         }
         
     }

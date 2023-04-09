@@ -9,6 +9,7 @@ const shop = new mongoose.Schema({
     gender: { type: String, required: true },
     type: { type: String, default: "general" },
     brand: { type: String, required: true },
+    stock :{type:Number , required:true},
 })
 
 const productModel = mongoose.model("productModel", shop);

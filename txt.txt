@@ -1,3 +1,8 @@
+--to start ---
+sudo systemctl start mongo.service  --start database
+npm start  X2 --- to start backend and frontend
+stripe listen --forward-to localhost:8080/api/payment/webhook
+
 ------about the /cart request ------------
  1.if the cart have the query  of check  then its for the cart only  ..
 2.if the cart doesn't have the query of check then it is wishlist...

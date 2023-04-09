@@ -17,13 +17,31 @@ const storageMulter = multer.diskStorage({
         cb(null, filepath);
     },
 });
+const avatarStorage  =  multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null , "../frontend/public/Avatar");
+    },
+    filename:(req,file,cb)=>{
+        const ext =   path.extname(file.originalname);
+        const id =  uuid();
+        const filepath = `${id}${ext}`;
+        cb(null,filepath);
+    }
+});
+
+app.use("/Avatar",express.static("Avatar"));
+const Avatar = multer({storage : avatarStorage});
 app.use("/uploads", express.static("uploads"));
 const upload = multer({ storage: storageMulter });
 //! upload from here 
-app.post("/backend/store",upload.array('file'), async (req, res) => {
+
+app.post('/avatar' , Avatar.single("avatar"),async (req,res)=>{
+    
+})
+app.post("/backend",upload.array('file'), async (req, res) => {
     try {
-        const { name, img, brand, price, type, description } = req.body;
-        let  val   =  req.files;
+         let  val   =  req.files;
+    
         var  iterable  = new Array();
     for (let i = 0 ; i < val.length;i++){
              iterable[i]   =  val[i].path
@@ -36,14 +54,16 @@ app.post("/backend/store",upload.array('file'), async (req, res) => {
             price: req.body.price,
             brand: req.body.brand,
             type: req.body.type,
-            description: req.body.description
+            description: req.body.description,
+            stock : req.body.stock,
         });
         result = true;
-        res.json({ "data": User, result })
+        res.json({  User, result })
     }
     catch (error) {
+        console.log(error);
         result = false;
-        res.json({ error, result })
+        res.status(500).json({ "error" :error , result })
 
     }
 
@@ -104,83 +124,19 @@ app.get("/items", async (req, res) => {
     }
 })
 
-//!category --->
-// ! jeans
-app.get("/jeans", async (req, res) => {
-    try {
-        const user = await productModel.find({ type: "jeans" });
-        res.status(201).json({ "data": user });
-    } catch (error) {
-        res.json({ error, result });
-    }
-})
-// !shirt 
-app.get("/shirt", async (req, res) => {
-    try {
 
-        const user = await productModel.find({ type: "shirt" });
-        res.status(201).json({ "data": user });
-    } catch (error) {
-        res.json({ result, error });
-    }
-
-})
-app.get("/T-shirt", async (req, res) => {
-    try {
-
-        const user = await productModel.find({ type: "T-shirt" });
-        res.status(201).json({ "data": user });
-    } catch (error) {
-        res.json({ result, error });
-    }
-
-})
-//! shoe
-app.get("/footwear", async (req, res) => {
-    try {
-        const user = await productModel.find({ type: "footwear" });
-        res.status(201).json({ "data": user });
-    } catch (error) {
-        res.json({ result, error });
-    }
-})
-//! dress
-app.get("/dress", async (req, res) => {
-    try {
-        const user = await productModel.find({ type: "dress" });
-        if (user.gender === "female") {
-            res.status(201).json({ "data": user });
-        }
-    } catch (error) {
-        res.json({ result, error });
-    }
-})
-//!bag 
-app.get("/bags", async (req, res) => {
-    try {
-        const user = await productModel.find({ type: "bag" });
-        res.status(201).json({ "data": user });
-    } catch (error) {
-        res.json({ result, error });
-    }
-})
-app.get("/accessories", async (req, res) => {
-    try {
-        const user = await productModel.find({ type: "accessories" });
-        res.status(201).json({ "data": user });
-    } catch (error) {
-        res.json({ result, error });
-    }
-})
 //! get request for the path 
 app.get("/productdata", async (req,res)=>{
+    try {
+        let id =  req.query.id;
+        
+        const user  = await productModel.findById(id);
+        res.json({action :"true" ,   "data":[user] })
+        
+    } catch (error) {
+        res.json({error})
+    }
 let id =  req.query.id;
-// const user  =  await productModel.find({"_id":id})
-const user  = await productModel.findById(id);
-
-let type  =  user.type;
-const Suggestion   =  await productModel.find({type})
-res.json({action :"true" ,   "data":[user] ,Suggestion})
 })
 
 

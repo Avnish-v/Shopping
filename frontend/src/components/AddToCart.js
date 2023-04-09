@@ -12,6 +12,7 @@ const AddToCart = () => {
     setsaveData(prevState => prevState.filter(item => item.productId !== productId));
     SendData();
   };  
+  
   const handleAddQuantity = (productId, newQuantity) => {
     setsaveData(prevState => prevState.map(item => {
       if (item.productId === productId) {
@@ -53,7 +54,8 @@ const AddToCart = () => {
       <div className="col-10">
 
         <div className="d-flex justify-content-between align-items-center mb-4">
-          <h3 className="fw-normal mb-0 text-black">Shopping Cart</h3>
+          <h3 className="fw-normal mb-0 text-black">Shopping Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+</h3>
         </div>
         
         {saveData.length !== 0 ? saveData.map(element => {
@@ -67,7 +69,9 @@ productId ={element.productId}
 quantitys={element.quantity}
 price = {element.price}
 onRemoveItem={handleRemoveItem} 
-handle ={handleAddQuantity}  />
+handle ={handleAddQuantity}
+stock = {element.stock}  />
+
 
 </div>  
 
@@ -78,7 +82,8 @@ Nothing in the cart <i class="fa fa-times" style={{color: 'red'}} aria-hidden="t
           <div className="card-body center d-flex justify-content-center" >
             
             {saveData.length !=0 ?<PayButton cartitem={saveData}/> :<></>}
-           <Link to='/'><button className='btn btn-warning btn-block btn-lg mx-2' >shop more</button></Link> 
+           <Link to='/'><button className='btn btn-warning btn-block btn-lg mx-2' > shop more <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+</button></Link> 
           </div>
         </div>
 

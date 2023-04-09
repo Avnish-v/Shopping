@@ -61,19 +61,22 @@ SendData();
           <h3 className="fw-normal mb-0 text-dark">wishlist♥</h3>
         </div>
         {saveData.length != 0? saveData.map(element => {
-       return <div className="card rounded-3 mb-4" key={element.productId} >     
+       return <div className="card rounded-3 mb-4" key={element.productId} >  
+       {console.log(element)}   
 <Wishlisitem
 productId={element.productId}
 Name = {element.Name}
 img = {element.img}
 price = {element.price}
 remove = {remove}
+stock= {element.stock}
 />
 </div>
 
 }):<h1 className='center text-center'>Nothing in the WishList <i class="fa fa-times" style={{color:"red"}} aria-hidden="true"></i>
 </h1> }
- <div className=' card-body center d-flex justify-content-center'><Link to="/"><button className='btn btn-warning btn-block btn-lg center'> Please Add  Items </button></Link></div>
+ <div className=' card-body center d-flex justify-content-center'><Link to="/"><button className='btn btn-warning btn-block btn-lg center'> Please Add  Items <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+  </button></Link></div>
 </div>  
       </div>
     </div>

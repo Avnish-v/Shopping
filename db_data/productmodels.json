@@ -1,0 +1,533 @@
+[{
+  "_id": {
+    "$oid": "640c1863842632bc099e179c"
+  },
+  "__v": "0",
+  "brand": "Louis Philippe",
+  "date": "2023-03-11T05:57:55.157Z",
+  "description": "Product Details  Black solid T-shirt, has a polo collar, and short sleeves Size & Fit  The model (height 6') is wearing a size M Material & Care  52%Cotton, 45%polyester and 3%spandex Machine-wash",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/03c078c7-9b67-4851-84ce-bfc35722e71f.webp",
+    "../frontend/public/uploads/25c48c13-f575-4b49-8c33-3b9145916afe.webp"
+  ],
+  "name": "black polo t-shirt",
+  "price": "1044",
+  "stock": 8,
+  "type": "T-shirt"
+},{
+  "_id": {
+    "$oid": "6415c8e1ebeb91baea9898f7"
+  },
+  "__v": "0",
+  "brand": "Fastrack",
+  "date": "2023-03-18T14:21:21.167Z",
+  "description": "Pack Contains: single watch Display: analogue Movement: quartz Power Source: battery Dial style: black solid round stainless steel dial Features: reset time Strap Style: black, regular, silicon strap with a tang closure Water resistance: 30 m Comes in a signature Fastrack case Disclaimer: Please take note, packaging box may vary from product to product",
+  "gender": "unisex",
+  "img": [
+    "../frontend/public/uploads/ea4d8f21-b4f1-48eb-9db7-ed46e4f6b5bb.webp",
+    "../frontend/public/uploads/58e8077d-a7b4-4bce-a371-8003633da23d.webp"
+  ],
+  "name": "Unisex Black Dial & Silicon Straps Analogue Watch 38024PP25",
+  "price": "859",
+  "stock": 41,
+  "type": "watch"
+},{
+  "_id": {
+    "$oid": "6415c9fcebeb91baea9898ff"
+  },
+  "__v": "0",
+  "brand": "U.S. Polo Assn.",
+  "date": "2023-03-18T14:26:04.389Z",
+  "description": "A pair of round-toe white sneakers, has regular styling, lace-up detail Canvas upper Cushioned footbed Textured and patterned outsole Warranty: 3 months Warranty provided by brand/manufacturer",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/ad9c6eea-e719-492f-8d5a-3b6ab8a58985.webp",
+    "../frontend/public/uploads/9d2a71af-758c-42c1-98e9-49cc427625bb.webp"
+  ],
+  "name": "Men White Clarkin Sneakers",
+  "price": "1499",
+  "stock": 10,
+  "type": "shoe"
+},{
+  "_id": {
+    "$oid": "6415c969ebeb91baea9898fb"
+  },
+  "__v": "0",
+  "brand": "SPYKAR",
+  "date": "2023-03-18T14:23:37.776Z",
+  "description": "     Dark shade, no fade blue jeans     Skinny fit, low-rise     Clean look     Stretchable     5 pocket     Length: regular",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/fcf01ed1-7aed-4b9d-8383-d41df19221fb.avif",
+    "../frontend/public/uploads/13aacd0e-bbad-4af6-9d1d-2eca62fe4622.avif"
+  ],
+  "name": "Men Skinny Fit Low-Rise Stretchable Jeans",
+  "price": "2144",
+  "stock": 99,
+  "type": "jeans"
+},{
+  "_id": {
+    "$oid": "640c921f5e5a61ff4c1f0690"
+  },
+  "__v": "0",
+  "brand": "Roadster",
+  "date": "2023-03-11T14:37:19.473Z",
+  "description": "Maroon and Navy Blue checked casual shirt, has a spread collar, long sleeves, button placket, curved hem, and 1 patch pocket Size & Fit  Regular Fit The model (height 6') is wearing a size 40 Material & Care  100% cotton Machine-wash",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/73277e83-e07e-4695-b64b-8b0d02992a7b.webp",
+    "../frontend/public/uploads/512bc986-6771-4a42-ae07-c9ee3d560fd1.jpg"
+  ],
+  "name": "Men Maroon shirt ",
+  "price": "649",
+  "stock": 100,
+  "type": "shirt"
+},{
+  "_id": {
+    "$oid": "6415cf5aebeb91baea989ab7"
+  },
+  "__v": "0",
+  "brand": "Puma",
+  "date": "2023-03-18T14:48:58.511Z",
+  "description": "A pair of black solid flip flops Synthetic upper material Cushioned footbed Patterned synthetic outsole Warranty: 3 months Warranty provided by brand/manufacturer",
+  "gender": "unisex",
+  "img": [
+    "../frontend/public/uploads/20308746-e4da-4653-b200-f3fc9521500b.webp",
+    "../frontend/public/uploads/55494ddc-09c1-4c0b-9c47-0e25ed2b9a22.webp"
+  ],
+  "name": "Unisex Black Solid Galaxy Comfort Flip-Flops",
+  "price": "1295",
+  "stock": 15,
+  "type": "filp-flop"
+},{
+  "_id": {
+    "$oid": "641eccf5cd1bda7791673015"
+  },
+  "__v": "0",
+  "brand": "DOLCE CRUDO",
+  "date": "2023-03-25T10:29:09.213Z",
+  "description": "Product Details  Black dark wash 5-pocket high-rise jeans, clean look, no fade, has a button and zip closure, and waistband with belt loops Size & Fit  Skinny Fit Stretchable The model (height 5'8/') is wearing a size 28 Material & Care 78 % cotton, 21 % polyester, 1 % elastane Machine - wash ",
+  "gender": "female",
+  "img": [
+    "../frontend/public/uploads/fab21740-311e-4dbd-a9f7-f7f5282fe118",
+    "../frontend/public/uploads/bcc275da-3f4c-4e32-8e35-f1c379e23b3a.webp"
+  ],
+  "name": "Women Black Skinny Fit High-Rise Clean Look Stretchable Jeans",
+  "price": "915",
+  "stock": 17,
+  "type": "jeans"
+},{
+  "_id": {
+    "$oid": "641ecdd8cd1bda7791673025"
+  },
+  "__v": "0",
+  "brand": "Roadster",
+  "date": "2023-03-25T10:32:56.740Z",
+  "description": "Blue medium wash 5-pocket high-rise jeans, clean look, heavy fade, has a button and zip closure, and waistband with belt loops Size & Fit  Narrow Wide Leg Stretchable The model (height 5'8/') is wearing a size 28 Material & Care 98.5 % cotton 1.5 % elastane Machine - wash ",
+  "gender": "female",
+  "img": [
+    "../frontend/public/uploads/d5a5a98b-aa34-4300-b1c9-cdd4bffd0c5c",
+    "../frontend/public/uploads/d413ad27-5a11-4cab-92f9-e49462e8c3a0"
+  ],
+  "name": "Women Blue Narrow Wide Leg High-Rise Clean Look Stretchable Jeans",
+  "price": "899",
+  "stock": 19,
+  "type": "jeans"
+},{
+  "_id": {
+    "$oid": "6423d0422a14e8c70bca693d"
+  },
+  "__v": "0",
+  "brand": "Anouk",
+  "date": "2023-03-29T05:44:34.470Z",
+  "description": "Product Details      Beige kurti     Printed     Round neck, three-quarter     Machine weave regular viscose rayon  Size & Fit  The model (height 5'8) is wearing a size S Material & Care  Hand Wash",
+  "gender": "female",
+  "img": [
+    "../frontend/public/uploads/52d70646-e578-4a61-8d8f-5607ee224fc8.avif",
+    "../frontend/public/uploads/5ba75413-946f-4972-84a5-30479feb09c1.avif"
+  ],
+  "name": "Beige Printed Kurti",
+  "price": "449",
+  "stock": 23,
+  "type": "kurti"
+},{
+  "_id": {
+    "$oid": "6423cfb42a14e8c70bca6925"
+  },
+  "__v": "0",
+  "brand": "SOJANYA",
+  "date": "2023-03-29T05:42:12.366Z",
+  "description": "Maroon woven design straight kurta, has a mandarin collar, long sleeves, straight hem, side slits Size & Fit  The model (height 6') is wearing a size M Material & Care  Silk and silk Machine-wash",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/0de17d46-484c-4490-9725-779c109f5b0a.webp",
+    "../frontend/public/uploads/babff4a3-064c-4f68-bee9-6b2ee2d22234.jpg"
+  ],
+  "name": "Men Maroon Woven Design Straight Kurta",
+  "price": "1200",
+  "stock": 22,
+  "type": "kurta"
+},{
+  "_id": {
+    "$oid": "6425bb2459d33823e5aef147"
+  },
+  "__v": "0",
+  "brand": "H&M",
+  "date": "2023-03-30T16:39:00.026Z",
+  "description": "Classic T-shirt in soft, printed cotton jersey with a ribbed trim around the neckline. Material & Care  100% Cotton Machine Wash",
+  "gender": "kids",
+  "img": [
+    "../frontend/public/uploads/344cd7b0-801a-445e-b42e-1e7232237ce3.avif",
+    "../frontend/public/uploads/c0af1109-eb8f-4e4b-b868-ffee815dfe03.avif"
+  ],
+  "name": "Boys Pure Cotton T-shirt",
+  "price": "350",
+  "stock": 23,
+  "type": "T-shirt"
+},{
+  "_id": {
+    "$oid": "6423cf0c2a14e8c70bca5379"
+  },
+  "__v": "0",
+  "brand": "Anouk",
+  "date": "2023-03-29T05:39:24.676Z",
+  "description": "     Colour: black and mustard yellow     Geometric printed     Mandarin collar     Long, regular sleeves     Straight shape with regular style     Above knee with straight hem     Machine weave regular cotton  Size & Fit  The model (height 6') is wearing a size M Material & Care  100% cotton Machine wash",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/63168b03-9766-4d1c-91fb-3e59488464fc.webp",
+    "../frontend/public/uploads/ac525ab5-33d7-4020-b415-c5f06619feeb"
+  ],
+  "name": "Men Black & Mustard Yellow Geometric Printed Kurta",
+  "price": "1259",
+  "stock": 21,
+  "type": "kurta"
+},{
+  "_id": {
+    "$oid": "640c9853d1c4b73a104cd1b0"
+  },
+  "__v": "0",
+  "brand": "roadster",
+  "date": "2023-03-11T15:03:47.975Z",
+  "description": "Black dark wash 5-pocket mid-rise jeans, clean look with no fade, has a button and zip closure, waistband with belt loops This garment contains LYCRA fiber. It moves with you throughout the day for a comfortable, flexible fit",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/030911c4-2219-491f-99c1-4cc5e29c2b18.webp",
+    "../frontend/public/uploads/d5a816bb-9d6c-4c2b-9c10-c54cd1e54152.webp"
+  ],
+  "name": "Men Black Slim Fit Mid-Rise Clean Look Stretchable Jeans",
+  "price": "700",
+  "stock": 25,
+  "type": "jeans"
+},{
+  "_id": {
+    "$oid": "640da2f689aa823b7a8b383a"
+  },
+  "__v": "0",
+  "brand": "HIGHLANDER",
+  "date": "2023-03-12T10:01:26.283Z",
+  "description": "White and light blue striped casual shirt, has a spread collar, button placket, 1 pocket, long sleeves, curved hem",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/d7c968f0-c1c4-47d4-9559-4bd2fd0c9adf.webp",
+    "../frontend/public/uploads/503e05d4-3ffd-4823-9122-fe7f557c303f.webp"
+  ],
+  "name": "Men White & Sea Green Slim Fit Striped Casual Shirt",
+  "price": "530",
+  "stock": 26,
+  "type": "shirt"
+},{
+  "_id": {
+    "$oid": "640da47489aa823b7a8b383c"
+  },
+  "__v": "0",
+  "brand": "HERE&NOW",
+  "date": "2023-03-12T10:07:48.810Z",
+  "description": "White abstract printed opaque Casual shirt ,has a spread collar, button placket, short regular sleeves, curved hem",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/c90fb7e5-9964-4ae3-8691-b4fc647ae2a3.webp",
+    "../frontend/public/uploads/2ba2ce35-3bff-44fa-9266-96a19261730d.webp"
+  ],
+  "name": "Men White Slim Fit Printed Casual Shirt",
+  "price": "759",
+  "stock": 27,
+  "type": "shirt"
+},{
+  "_id": {
+    "$oid": "640da53389aa823b7a8b383e"
+  },
+  "__v": "0",
+  "brand": "Roadster",
+  "date": "2023-03-12T10:10:59.709Z",
+  "description": "Maroon and grey checked casual shirt, has a spread collar, long sleeves, button placket, curved hem, and 1 patch pocket",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/ae3e616d-1cee-485b-9153-1da24cc3b39d.webp",
+    "../frontend/public/uploads/5683ad88-3c6a-4ace-88e4-2905fca0fa86.jpg"
+  ],
+  "name": "The Lifestyle Co Men Maroon & Grey Checked Sustainable Casual Shirt",
+  "price": "1099",
+  "stock": 28,
+  "type": "shirt"
+},{
+  "_id": {
+    "$oid": "640dea29a0805baf625b28e3"
+  },
+  "__v": "0",
+  "brand": "High Star",
+  "date": "2023-03-12T15:05:13.819Z",
+  "description": "Faded opaque Casual shirt ,has a spread collar, button placket, 1 patch pocket, long regular sleeves, curved hem",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/793ca0bf-b822-47be-81ea-fdb3c3525aa0.avif",
+    "../frontend/public/uploads/9de96bf7-99ed-471e-80bc-0875f887f022.avif"
+  ],
+  "name": "Men Faded Denim Casual Shirt",
+  "price": "795",
+  "stock": 30,
+  "type": "shirt"
+},{
+  "_id": {
+    "$oid": "640ded29a0805baf625b28e7"
+  },
+  "__v": "0",
+  "brand": "Jack & Jones",
+  "date": "2023-03-12T15:18:01.699Z",
+  "description": "Solid opaque Casual shirt ,has a spread collar, button placket, long regular sleeves, curved hem",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/2d0821aa-17ef-4546-a460-343670a7e3b3.avif",
+    "../frontend/public/uploads/4fee7b81-ffde-4ca4-9c94-2ba141df1ccc.avif"
+  ],
+  "name": "Men Slim Fit Casual Cotton Shirt",
+  "price": "2799",
+  "stock": 32,
+  "type": "shirt"
+},{
+  "_id": {
+    "$oid": "640da64389aa823b7a8b3840"
+  },
+  "__v": "0",
+  "brand": "WROGN",
+  "date": "2023-03-12T10:15:31.911Z",
+  "description": "Navy blue and white checked casual shirt, has a spread collar, a full button placket, long sleeves, a chest pocket, curved hem",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/e81f089f-0b9c-4e9a-922f-4c4ba3127032.webp",
+    "../frontend/public/uploads/350d1229-127f-49f4-9fa0-f0e8ce755c92.webp"
+  ],
+  "name": "Men Navy & White Slim Fit Checked Casual Shirt",
+  "price": "1367",
+  "stock": 29,
+  "type": "shirt"
+},{
+  "_id": {
+    "$oid": "640dec3fa0805baf625b28e5"
+  },
+  "__v": "0",
+  "brand": "THE BEAR HOUSE",
+  "date": "2023-03-12T15:14:07.302Z",
+  "description": "Black and White checked Flannel casual shirt, has a button-down collar, long sleeves, button placket, curved hem, and 1 patch pocket",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/858e8d9c-98e0-4e75-bb62-3ac5718cd5ee.webp",
+    "../frontend/public/uploads/4f182ec8-c85d-456c-bc27-2b6c3cb4edb6.webp"
+  ],
+  "name": "Men Black & White Slim Fit Checked Flannel Casual Shirt",
+  "price": "1372",
+  "stock": 31,
+  "type": "shirt"
+},{
+  "_id": {
+    "$oid": "640deda5a0805baf625b28e9"
+  },
+  "__v": "0",
+  "brand": "MARK & ALBERT",
+  "date": "2023-03-12T15:20:05.689Z",
+  "description": "Green & blue vertical stripes opaque Casual shirt ,has a spread collar, button placket, na patch pocket, long regular sleeves, curved hem",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/ab575567-08f6-4d7d-b10e-393923824a03.avif",
+    "../frontend/public/uploads/15de55d0-8625-42b0-b19f-52d1b9db4e02.avif"
+  ],
+  "name": "Slim Fit Vertical Striped Casual Shirt",
+  "price": "1359",
+  "stock": 33,
+  "type": "shirt"
+},{
+  "_id": {
+    "$oid": "640df0c1a0805baf625b28ef"
+  },
+  "__v": "0",
+  "brand": "Roadster",
+  "date": "2023-03-12T15:33:21.099Z",
+  "description": "Grey Melange solid T-shirt, has a round neck, short sleeves",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/3ea14f51-1cfe-4785-8327-9b7b54b1e973.avif",
+    "../frontend/public/uploads/49728caf-376f-419a-9c25-a67549b6be80.jpg"
+  ],
+  "name": "Men Grey Melange Longline T-shirt with Raw Edges",
+  "price": "327",
+  "stock": 36,
+  "type": " t shirt"
+},{
+  "_id": {
+    "$oid": "640deedfa0805baf625b28eb"
+  },
+  "__v": "0",
+  "brand": "THE BEAR HOUSE",
+  "date": "2023-03-12T15:25:19.848Z",
+  "description": "Purple solid Casual shirt ,has a button-down collar, button placket, 1 patch pocket, long regular sleeves, curved hem",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/10d05f75-e4ba-4d1e-a5fb-81b0a34f08df.avif",
+    "../frontend/public/uploads/eeec99ae-fcdc-43ab-961e-07519eff2fe4.avif"
+  ],
+  "name": "Men Purple Slim Fit Casual Shirt",
+  "price": "1372",
+  "stock": 34,
+  "type": "shirt"
+},{
+  "_id": {
+    "$oid": "640df1e1a0805baf625b28f2"
+  },
+  "__v": "0",
+  "brand": "HRX by Hrithik Roshan",
+  "date": "2023-03-12T15:38:09.002Z",
+  "description": "This season set a sporty fashion trend with the HRX Men's Athleisure T-shirt. This striped casual T-shirt can be worn on its own or layered under a jacket or a hoodie.",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/0923b724-45d5-494e-9301-66b17aa2a710.webp",
+    "../frontend/public/uploads/dba8ebd2-421a-47a4-bf83-e51f5a424c14.webp"
+  ],
+  "name": "Men Teal Blue Printed Pure Cotton T-shirt",
+  "price": "384",
+  "stock": 37,
+  "type": " t shirt"
+},{
+  "_id": {
+    "$oid": "640df03ca0805baf625b28ed"
+  },
+  "__v": "0",
+  "brand": "Huetrap",
+  "date": "2023-03-12T15:31:08.646Z",
+  "description": "Beige and Black printed T-shirt, has a round neck, and short sleeves",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/cd291bbc-9280-4aa2-a1e4-77f8e9d06abc.webp",
+    "../frontend/public/uploads/7792889a-7d53-49ad-a24d-910c2ff6006e.jpg"
+  ],
+  "name": "Men Beige & Black Typography Printed Sustainable T-shirt",
+  "price": "296",
+  "stock": 35,
+  "type": " t shirt"
+},{
+  "_id": {
+    "$oid": "640df30da0805baf625b28f4"
+  },
+  "brand": "Allen Solly",
+  "date": "2023-03-12T15:43:09.988Z",
+  "description": "Blue solid T-shirt, has a polo collar, and short sleeves",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/bef48bde-dfb7-4ea6-864b-bacf5fa3a9e4.webp",
+    "../frontend/public/uploads/a081ec81-a9c7-47c7-8757-d4a43a079d58.jpg"
+  ],
+  "name": "Men Blue Solid Polo Collar Pure Cotton T-shirt",
+  "price": "499",
+  "stock": 38,
+  "type": " t shirt"
+},{
+  "_id": {
+    "$oid": "640df38ba0805baf625b28f6"
+  },
+  "__v": "0",
+  "brand": "Roadster",
+  "date": "2023-03-12T15:45:15.538Z",
+  "description": "Black solid T-shirt, has a round neck, short sleeves",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/64acd702-96ec-4c4b-8637-5fb5a484aa66.webp",
+    "../frontend/public/uploads/a131cf21-d759-4332-9ed6-d2a248ff5b93.webp"
+  ],
+  "name": "Men Black Cotton Pure Cotton T-shirt",
+  "price": "234",
+  "stock": 38,
+  "type": " t shirt"
+},{
+  "_id": {
+    "$oid": "640df627a0805baf625b28fd"
+  },
+  "__v": "0",
+  "brand": "VEIRDO",
+  "date": "2023-03-12T15:56:23.100Z",
+  "description": "White T-shirt for men Camouflage printed Regular length Round neck Short, regular sleeves Knitted cotton fabric",
+  "gender": "male",
+  "img": [
+    "../frontend/public/uploads/1625fa7d-6229-4f81-a303-2f6aa5e9d357.webp",
+    "../frontend/public/uploads/e4a55265-8f67-4f54-b58b-81a9c0f4c142.webp"
+  ],
+  "name": "Men White Camouflage Printed Loose Oversize Cotton T-shirt",
+  "price": "419",
+  "stock": 42,
+  "type": " t shirt"
+},{
+  "_id": {
+    "$oid": "643061be63424eb42e81736d"
+  },
+  "name": "Boys Blue Heavy Fade Applique Stretchable Jeans",
+  "description": "     Medium heavy fade blue jeans     Regular fit, mid-rise     Clean look     Stretchable     Applique     5 pocket     Length: regular  Size & Fit   Fit: Regular Fit Stretchable Material & Care  79% Cotton 19% Polyester  2% Elastane Machine wash",
+  "img": [
+    "../frontend/public/uploads/8d8bce47-6396-454a-ba21-48d39af03b22",
+    "../frontend/public/uploads/4d687bc3-6e81-4fc3-ac2b-a0d003107eef.webp"
+  ],
+  "price": 560,
+  "gender": "kids",
+  "type": "jeans",
+  "brand": "HERE&NOW",
+  "stock": 2,
+  "date": {
+    "$date": "2023-04-07T18:32:30.862Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643062c463424eb42e817371"
+  },
+  "name": "Infants Cotton Fleece T-Shirt with Pyjamas",
+  "description": "This clothing set consists of Top and Pyjamas Green and white self design Top ,has a round neck, long sleeves Green and white solid Pyjamas ,has a slip-on closure Material & Care  100% Cotton Fleece Hand Wash",
+  "img": [
+    "../frontend/public/uploads/0a452a24-73e8-4358-bd69-8e78f0b8f12b",
+    "../frontend/public/uploads/794cb20a-52c7-48ad-9f20-d4cb1b22cf4b"
+  ],
+  "price": 400,
+  "gender": "kids",
+  "type": "Pyjamas",
+  "brand": "ariel",
+  "stock": 12,
+  "date": {
+    "$date": "2023-04-07T18:36:52.055Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643064bc63424eb42e817375"
+  },
+  "name": "Men Beige & Green Colourblocked Sneakers",
+  "description": "A pair of round toe beige and green colourblocked sneakers, has regular styling, Lace-ups detail Synthetic upper Cushioned footbed Textured and patterned outsole Warranty: 1 month Warranty provided by Brand Owner / Manufacturer Material & Care  Upper material: Synthetic Sole material: EVA Wipe with a clean, dry cloth to remove the dust",
+  "img": [
+    "../frontend/public/uploads/91a4086c-7f51-4337-bc07-4e217e53a3ee",
+    "../frontend/public/uploads/2112cdbe-74d4-408c-b682-9efcd28fec2e"
+  ],
+  "price": 835,
+  "gender": "male",
+  "type": "shoe",
+  "brand": "Roadster",
+  "stock": 10,
+  "date": {
+    "$date": "2023-04-07T18:45:16.420Z"
+  },
+  "__v": 0
+}]
