@@ -5,8 +5,10 @@ const ProductItem = (props) => {
   const [Seconds,setSeconds] =  useState(0);
   let  Fundelete = async(id)=>{
   let a =   window.confirm("do you really wanted to delete this product")
+
     if(a){
-    let res =  await fetch(`http://localhost:8080/api/Admin/DeleteProduct/?productId=${id}`,{method:"DELETE"});
+      let token  =  localStorage.getItem("token");
+    let res =  await fetch(`http://localhost:8080/api/Admin/DeleteProduct/?productId=${id}&token=${token}`,{method:"DELETE"});
     res = await res.json();
     handle(id);}
   }

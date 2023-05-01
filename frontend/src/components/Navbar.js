@@ -7,7 +7,7 @@ const Navbar = (props) => {
   useEffect(() => {
     setkeys(props.User);
     
-  }, [keys])
+  }, [props.User])
   
 
   return (  
@@ -43,11 +43,12 @@ const Navbar = (props) => {
             <li><Link className="dropdown-item" to={localStorage.status === "logout"? `/AddToCart` :`/login`}>Cart</Link></li>
             <li><Link className="dropdown-item" to={localStorage.status ==="logout" ? `/WishList` :`/login`}>WishList</Link></li>
             <li><Link className="dropdown-item" to={localStorage.status ==="logout" ? `/order` :`/login`}>order</Link></li>
+            <li><Link className="dropdown-item" to={localStorage.status ==="logout" ? `/profile` :`/login`}>Profile</Link></li>
             <li><hr className="dropdown-divider"/></li>
-            <li><a className="dropdown-item"  onClick={()=>{ localStorage.removeItem("token")
+            <li><Link className="dropdown-item"  onClick={()=>{ localStorage.removeItem("token")
           localStorage.removeItem("status")
           localStorage.removeItem("role");
-          }} href="/Login"> {localStorage.status === "logout" ? "logout" : "login"}</a></li>
+          }} to="/Login"> {localStorage.status === "logout" ? "logout" : "login"}</Link></li>
           </ul>
         </li>
       </ul>:<  >

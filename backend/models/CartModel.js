@@ -1,6 +1,6 @@
 const mongoose =  require("mongoose");
 const cart  =  new mongoose.Schema({
-   UserId : {required: true, type: String,unique:true},
+   UserId : {type: String,required: true, unique: true,},
 products: [
     {
         productId: {
@@ -33,6 +33,7 @@ products: [
 ]
 
 }, {timestamps: true})
+
 
 const  CartModel = mongoose.model("CartModel", cart);
 

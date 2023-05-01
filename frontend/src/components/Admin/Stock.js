@@ -9,19 +9,9 @@ const Stock = () => {
   let updates =(pid)=>{
     setUpdate(pid)
   }
-  // const handleAddQuantity = (productId, newQuantity) => {
-  //   setsaveData(prevState => prevState.map(item => {
-  //     if (item.productId === productId) {
-  //       return {...item, quantity: newQuantity};
-  //     }
-  //     return item;
-  //   }));
-  //   SendData();
-  // };
-
       const SendData = async () => {
         let localstorage = localStorage.getItem("token");
-        let send = await fetch(`http://localhost:8080/api/Admin/getOutOfStock`, { method: "GET" });
+        let send = await fetch(`http://localhost:8080/api/Admin/getOutOfStock/?token=${localstorage}`, { method: "GET" });
         let response = await send.json();
         console.log("res",response);
         let data = response.products;

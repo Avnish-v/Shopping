@@ -11,7 +11,20 @@ const cart  =  require("../models/CartModel");
 const WishList = require("../models/WishlistModel");
 const CartModel = require("../models/CartModel");
 const OrderModel = require("../models/OrderModel");
-app.post("/create", async (req, res) => {
+const mongoose = require('mongoose');
+const multer = require('multer');
+const path = require('path');
+
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "../frontend/public/Avatar")
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, Date.now() + path.extname(file.originalname))
+//   }
+// })
+// const upload = multer({ storage: storage })
+app.post("/create",async (req, res) => {
     let result = false;
     const { username, password, address, phone, email, } = req.body;
     try {
@@ -27,6 +40,7 @@ app.post("/create", async (req, res) => {
             address: address,
             phone: phone,
             email: email,
+           
         });
         let ID = {
             id: data.id,
@@ -39,6 +53,38 @@ app.post("/create", async (req, res) => {
         res.json({ result, error });
     }
 });
+app.get("/UserD" ,  async (req,res)=>{
+  try {
+    let usertk = req.query.tk;
+    let UserId =  jwt.decode(usertk).id;
+    let data  =  await user.findById(UserId);
+    console.log("data",data);
+    res.json(data);
+    
+  } catch (error) {
+    res.json(error);
+  }
+})
+
+app.put("/change" , async (req,res)=>{
+  try {
+    const {username,phone,address} = req.body;
+    let tk   = req.query.tk;
+    let userd  =  jwt.decode(tk).id;
+    let UserExist = await user.findById(userd);
+    if(UserExist){
+    UserExist.username = username || UserExist.username;
+    UserExist.phone =  phone || UserExist.phone;
+    UserExist.address  = address || UserExist.address;
+    UserExist.save();
+    res.json({ message: 'User information updated successfully' });
+    }
+  } catch (error) {
+    res.json(error);
+    
+  }
+
+})
 //!login ---->
 app.post("/login",async (req, res) => {
     let result = false;
@@ -100,54 +146,70 @@ app.put("/change",  async (req, res) => {
     }
 });
 app.get("/cart", async (req, res) => {
-    try {
+  try {
+    // Get product ID and quantity from request body
+    const { productId, quantity, id } = req.query;
+    console.log(productId , quantity ,id)
 
-      const productId = req.query.id;
-      let  quantity = req.query.quantity
-      const tokenID = req.query.tk;
-      const UserId = jwt.decode(tokenID).id;
-      let UserExist = await cart.findOne({ UserId });
-     
-      // user have the Cart or not --- with userID field
-      let extractProduct = await productModel.findById(productId);
-      let  {price ,img,stock} = extractProduct;
-      let Name  = extractProduct.name;
-      if(!quantity){
+    // Validate input
+    // if (!mongoose.isValidObjectId(productId)) {
+    //   return res.status(400).json({ error: "Invalid product ID" });
+    // }
+    // if (!Number.isInteger(quantity) || quantity <= 0) {
+    //   return res.status(400).json({ error: "Invalid quantity" });
+    // }
 
-      }
-      if (UserExist) {
-        //!user cart already exists...
-        let itemIndex = UserExist.products.findIndex(
-          (p) => p.productId === productId
-        ); //idhar humae uska index milega konse position per h agar product h cart me
-        if (itemIndex > -1) {
-          // Product already exists in cart, update its quantity
-          UserExist.products[itemIndex].quantity = quantity;
-          if (UserExist.products[itemIndex].quantity <= 0) {
-            // If quantity is zero or negative, remove the product from cart
-            UserExist.products.splice(itemIndex, 1);
-          }
-        } else {
-          // Product does not exist in cart, add it
-          let newProduct = { productId, quantity:1, price, img, Name,stock };
-          UserExist.products.push(newProduct);
-        }
-        UserExist = await UserExist.save();
-        return res.status(201).json(UserExist);
-      } else {
-        // idhar per user ka cart he nhi h toh naya banya hai
-        const newCart = await cart.create({
-          UserId,
-          products: [{ productId, quantity:1, price, img, Name,stock }],
-        });
-        console.log(newCart)
-        return res.status(201).json(newCart);
-      }
-    } catch (error) {
-      res.status(302).json({ error });
+    // Find the user's cart, if it exists
+   
+    const UserId  = jwt.decode(id).id;
+   
+    console.log(UserId);
+    let userCart = await cart.findOne({ UserId });
+
+    // Get product information
+    const product = await productModel.findById(productId);
+    if (!product) {
+      return res.status(404).json({ error: "Product not found" });
     }
-  });
-  
+    const { price, img, stock } = product;
+    const Name = product.name;
+
+    // Update or add the product to the cart
+    if (userCart) {
+      // User has a cart, update it
+      let itemIndex = userCart.products.findIndex(
+        (p) => p.productId.toString() === productId
+      );
+      if (itemIndex > -1) {
+        // Product already exists in cart, update its quantity
+        userCart.products[itemIndex].quantity = quantity;
+        if (userCart.products[itemIndex].quantity <= 0) {
+          // If quantity is zero or negative, remove the product from cart
+          userCart.products.splice(itemIndex, 1);
+        }
+      } else {
+        // Product does not exist in cart, add it
+        const newProduct = { productId, quantity, price, img, Name, stock };
+        userCart.products.push(newProduct);
+      }
+      userCart = await userCart.save();
+      return res.status(200).json(userCart);
+    } else {
+      // User does not have a cart, create a new one
+      const newCart = await cart.create({
+        UserId,
+        products: [{ productId, quantity, price, img, Name, stock }],
+      });
+      return res.status(201).json(newCart);
+    }
+  } catch (error) {
+    if (error.name === "ValidationError") {
+      return res.status(400).json({ error: error.message });
+    }
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 app.get("/updatedCart", async (req, res) => {
     try {
         let token  =  req.query.token;
@@ -173,39 +235,63 @@ app.get("/updatedCart", async (req, res) => {
 //!here i am going to perform all the wishlist remove the product and  and the the product ...>
 app.post('/wishlist', async (req, res) => {
   try {
-    const { productId, token, check } = req.query;
-if(token && productId){
-  
-  const { id: userId } = jwt.decode(token);
-  let userWishlist = await WishList.findOne({ UserId:userId });
-  let Product =  await productModel.findById(productId);
-  const { name,price,img,stock} = Product;
+    const { productId, token } = req.query;
 
- 
+    if (!productId || !token) {
+      return res.status(400).json({ error: 'Missing required parameters.' });
+    }
+
+    const { id: userId } = jwt.decode(token);
+    let userWishlist = await WishList.findOne({ UserId: userId });
+    let Product = await productModel.findById(productId);
+
+    if (!Product) {
+      return res.status(400).json({ error: 'Invalid product ID.' });
+    }
+
+    const { name, price, img, stock } = Product;
+
     if (!userWishlist) {
-      //the userWishlist not exist we will create new
+      // the userWishlist does not exist, so we will create a new one
       const newWishlist = await WishList.create({
-        UserId:userId,
-        products: [{ Name : name , price , img ,productId,stock }],
+        UserId: userId,
+        products: [{ Name: name, price, img, productId, stock }],
       });
-      return res.status(201).json({"created":"new"});
+
+      return res.status(201).json({ created: 'new' });
     } else {
       // check if the product already exists in the wishlist
-      const productExists = userWishlist.products.some(p => p.productId === productId);
-      if (productExists) {
-        return res.status(400).json({ error: 'This product is already in your wishlist.' });
+      const existingProduct = userWishlist.products.find(
+        (p) => p.productId === productId
+      );
+      
+      if (existingProduct) {
+        return res
+          .status(400)
+          .json({ error: 'This product is already in your wishlist.' });
       } else {
-        userWishlist.products.push({  Name : name , price , img ,productId,stock });
+        // remove the existing product (if any) before adding the new product to the array
+        userWishlist.products = userWishlist.products.filter(p => p.productId !== productId);
+
+        userWishlist.products.push({
+          Name: name,
+          price,
+          img,
+          productId,
+          stock,
+        });
+
         await userWishlist.save();
-        return res.status(200).json({"added":"addeds"});
+        return res.status(200).json({ added: 'added' });
       }
     }
-  } 
-   }catch (error) {
+  } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Server error.' });
   }
 });
+
+
 
 
 app.delete('/wishlist', async (req, res) => {
@@ -260,7 +346,7 @@ app.delete('/wishlist', async (req, res) => {
         let userid= jwt.decode(token).id;
 
       if(userid){
-        
+
         let UserCart  =  await WishList.find()
         let carts = new Array();
     UserCart.forEach(Element=>{

@@ -25,7 +25,7 @@ const AddToCart = () => {
   const  productdata =  async ()=>{
     if(URLDATA){
       let localstorage = localStorage.getItem("token");
-      let response  =  await fetch(`http://localhost:8080/api/auth/cart?id=${URLDATA}&tk=${localstorage}`,{method : "GET" }) 
+      let response  =  await fetch(`http://localhost:8080/api/auth/cart?productId=${URLDATA}&id=${localstorage}`,{method : "get" }) 
      SendData(); }  }
       const SendData = async () => {
         let localstorage = localStorage.getItem("token");

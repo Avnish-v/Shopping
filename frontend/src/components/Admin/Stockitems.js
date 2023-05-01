@@ -13,9 +13,11 @@ const Stockitems = (props) => {
    
   };
   const fetchData = async (productId , quantity) => {
+    let local = localStorage.getItem("token")
     const data = {
       id: productId,
-      stock: quantity
+      stock: quantity,
+      token : local
     };
     const options = {
       method: 'POST',

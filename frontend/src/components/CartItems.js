@@ -22,8 +22,8 @@ const CartItem = (props) => {
     const fetchData = async () => {
       let localstorage = localStorage.getItem("token");
       let response = await fetch(
-        `http://localhost:8080/api/auth/cart?id=${productId}&tk=${localstorage}&quantity=${quantity}`,
-        { method: "GET" }
+        `http://localhost:8080/api/auth/cart?productId=${productId}&id=${localstorage}&quantity=${quantity}`,
+        { method: "get" }
       );
       response = await response.json();
       handle(productId,quantity)

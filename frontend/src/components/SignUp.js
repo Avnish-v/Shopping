@@ -4,19 +4,7 @@ const host = "http://localhost:8080"
 const SignUp = () => {
   let history =  useNavigate();
   const [register, setregister] = useState({username:"", password:"",email :"" ,address : "", phone:"" });
-  // const handlesubmit = async (e) => {
-  //  e.preventDefault();
-  //   const response = await fetch(`${host}/api/auth/create`, {
-  //       method: "POST",
-  //       headers: {
-  //           "content-type": "application/json",
-  //       },
-  //       body: JSON.stringify({ "username":"", "password":"","email" :"" ,"address" : "", "phone":""})
-
-  //   });
-  //   let backdata  =  await response;
-  //   console.log(response)
-  // }
+  const [errors, setErrors] = useState({});
   const handle   = async (e)=>{
     e.preventDefault();
     let res   =  await  fetch(`${host}/api/auth/create`,{
@@ -29,7 +17,7 @@ const SignUp = () => {
     let backupdata  =  await res.json();
     console.log(backupdata);
     if (backupdata.result == true) {
-      //save the aueyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDU2ZTc2Mzk3YjQ4YmEyOWZhODI1NSIsImlhdCI6MTY3MDE2MDk0NX0.rNa9gKeVbUwDeFjlBxqOpVy5KOrPWgilxXmZpE0FkGYth token
+      
       localStorage.setItem('token',backupdata.AuthToken );
       localStorage.setItem('status',"logout")
       history('/')
@@ -38,18 +26,42 @@ const SignUp = () => {
   } else {
       alert("registeration unsuccessfully")
       localStorage.removeItem("status")
-     
-      // props.showAlert("please enter correct cardential", 'danger');
+
   }
 }
    
   
   
-  const onChange =  (e)=>{
-    
-    setregister({ ...register, [e.target.name]: [e.target.value] });
-    
-  };
+const onChange = (e) => {
+  const { name, value } = e.target;
+  
+  // add regex pattern and validation message for each input field
+  const patterns = {
+    username: /^[a-zA-Z ]{2,30}$/,
+    password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    address: /^[a-zA-Z0-9\s,'-]*$/,
+    phone: /^\d{10}$/
+  }
+  const messages = {
+    username: "Name must contain only letters and spaces.",
+    password: "Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one digit.",
+    email: "Please enter a valid email address.",
+    address: "Address must contain only letters, digits, spaces, commas, hyphens, and single quotes.",
+    phone: "Phone number must be 10 digits long."
+  }
+  
+  // validate the input field using regex pattern
+  if (patterns[name] && !patterns[name].test(value)) {
+    setErrors({ ...errors, [name]: messages[name] });
+  } else {
+    const newErrors = { ...errors };
+    delete newErrors[name];
+    setErrors(newErrors);
+  }
+  
+  setregister({ ...register, [name]: [value] });
+};
  
   return (
   <>
@@ -73,32 +85,35 @@ const SignUp = () => {
                 
 
                  <div className="form-outline mb-4">
-                   <input type="text" id="form2Example11 name"  name="username" className="form-control" value={register.name} onChange={onChange}
+                   <input type="text" id="form2Example11 name"  name="username" className="form-control" pattern="[A-Za-z]+" required value={register.name} onChange={onChange}
                      placeholder="please enter your name" />
                    <label className="form-label" htmlFor="form2Example11">Name</label>
                  </div>
                  <div className="form-outline mb-4">
-                   <input type="email" id="form2Example11 email"  name="email" className="form-control" value={register.email} onChange={onChange}
+                   <input type="email" id="form2Example11 email"  name="email" className="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required value={register.email} onChange={onChange}
                      placeholder="please enter your email id" />
                    <label className="form-label" htmlFor="form2Example11">Email</label>
                  </div>
                  <div className="form-outline mb-4">
-                   <input type="text" id="form2Example11 address"  name="address" className="form-control" value={register.address}  onChange={onChange}
+                   <input type="text" id="form2Example11 address"  name="address" className="form-control" pattern="[0-9a-zA-Z\s,-]*$" value={register.address}  onChange={onChange}
                      placeholder="Address" />
                    <label className="form-label" htmlFor="form2Example11">Address</label>
                  </div>
                  <div className="form-outline mb-4">
-                   <input type="phone" id="form2Example11 phone"  name="phone" className="form-control"  value={register.phone}onChange={onChange}
+                   <input type="phone" id="form2Example11 phone"  name="phone" className="form-control" pattern='\d{10}'  value={register.phone}onChange={onChange}
                      placeholder="Phone no." />
                    <label className="form-label" htmlFor="form2Example11">Phone NO.</label>
                  </div>
 
 
                  <div className="form-outline mb-4">
-                   <input type="password" id="form2Example22  password" className="form-control"  onChange={onChange} value={register.password} name="password"/>
+                   <input type="password" id="form2Example22  password" className="form-control" pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}' onChange={onChange} value={register.password} name="password"/>
                    <label className="form-label" htmlFor="form2Example22"> Set-Password</label>
                  </div>
-               
+                 {/* <div className="mb-3 ">
+<label htmlhtmlfor='file' className="custom-file ">Profile</label>
+<input type="file" className="custom-file-input form-control"    name="file" id="file" />
+</div> */}
 
                  <div className="text-center pt-1 mb-5 pb-1">
                    <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type='submit' >register

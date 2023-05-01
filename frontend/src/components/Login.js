@@ -14,8 +14,6 @@ const Login = () => {
             body: JSON.stringify({ "email": cardential.email[0], "password": cardential.password[0] })
 
         });
-
-
         const json = await response.json();
       
         if (json.result == true) {
@@ -64,7 +62,7 @@ const Login = () => {
                  <p>Please login to your account</p>
 
                  <div className="form-outline mb-4">
-                   <input type="email" id="form2Example11 email"  name="email" className="form-control" value={cardential.email} onChange={OnChange}
+                   <input type="email" id="form2Example11 email"  name="email" className="form-control" value={cardential.email} pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" onChange={OnChange}
                      placeholder="Phone number or email address" />
                    <label className="form-label" htmlFor="form2Example11">Username</label>
                  </div>

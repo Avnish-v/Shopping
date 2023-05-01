@@ -16,6 +16,7 @@ import Stock from "./components/Admin/Stock";
 import ALLProduct from "./components/Admin/ALLProduct";
 import Admin from "./components/Admin/Admin";
 import { useState,useEffect} from "react";
+import Profile from "./components/Profile";
 
 function App() {
   const [User, setUser] = useState('User');
@@ -27,7 +28,7 @@ function App() {
     } else {
       setUser('User')
     }
-  }, [User]);
+  }, []);
   
   const userRoutes = [
     { path: '/', element: <Shop key="items"  link="items" /> },
@@ -44,6 +45,7 @@ function App() {
     { path: '/wishlist', element: <WishList key={window.location.id} /> },
     { path: '/order', element: <Order /> },
     { path: '*', element: <Error /> },
+    {path : "/profile" ,  element : <Profile />}
   ];
   
   const adminRoutes = [
@@ -58,7 +60,7 @@ function App() {
   return (
     <div>
       <Router>
-        <Navbar User={User} key={User} />
+      <Navbar User={User} />
         <Routes>
         
         <Route path="/login" element={<Login/>}/>
