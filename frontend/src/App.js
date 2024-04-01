@@ -49,8 +49,8 @@ function App() {
   ];
   
   const adminRoutes = [
-    { path: '/', element: <Admin  /> },
-    {path : '/AllProduct', element: <ALLProduct key="items" link="items"/>},
+    { path: '/', element: <Admin /> },
+    {path : '/allproduct', element: <ALLProduct key="items" link="items"/>},
     { path: '/outofstock', element: <Stock /> },
     { path: '*', element: <Error /> },
   ];
@@ -62,7 +62,6 @@ function App() {
       <Router>
       <Navbar User={User} />
         <Routes>
-        
         <Route path="/login" element={<Login/>}/>
           {routes.map(route => (
             <Route key={route.path} path={route.path} element={route.element} />

@@ -86,42 +86,27 @@ app.put("/change" , async (req,res)=>{
 
 })
 //!login ---->
-app.post("/login",async (req, res) => {
-    let result = false;
-    const { password, email } = req.body;
-    try {
-        let response = await user.findOne({ email });
-        const compare = await bcrypt.compare(password, response.password);
+app.post("/login", async (req, res) => {
+  let result = false;
+  const { password, email } = req.body;
+  try {
+      let response = await user.findOne({ email });
+      const compare = await bcrypt.compare(password, response.password);
 
-//         if(email === "admin12@gmail.com" && comapre){
-// res.json({})
-//         }else 
-if (!compare) {
-            res
-                .status(400)
-                .json({ result, error: "please enter correct cardential" });
-        } else {
-
-        if(email === "admin12@gmail.com"){
-result  = "admin";
-            let ID = {
-                id: response.id,
-            };
-            const AuthToken = jwt.sign(ID, jwt_sc);
-            res.json({ result, AuthToken });
-        }else{
-            result = true;
-            let ID = {
-                id: response.id,
-            };
-            const AuthToken = jwt.sign(ID, jwt_sc);
-            res.json({ result, AuthToken });
-        }
-        }
-    } catch (error) {
-        result = false;
-        res.status(400).json({ result, error: "please enter correct cardential" });
-    }
+      if (!compare) {
+          res.status(400).json({ result, error: "Please enter correct credentials" });
+      } else {
+          result = true;
+          let ID = {
+              id: response.id,
+          };
+          const AuthToken = jwt.sign(ID, jwt_sc);
+          res.json({ result, AuthToken ,  admin : response.isAdmin });
+      }
+  } catch (error) {
+      result = false;
+      res.status(400).json({ result, error: "Please enter correct credentials" });
+  }
 });
 //! change password ---->  but there is the issue this service is only valid when the user is logged in ....>
 app.put("/change",  async (req, res) => {

@@ -15,22 +15,22 @@ const Login = () => {
 
         });
         const json = await response.json();
-      
         if (json.result == true) {
-            //save the aueyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDU2ZTc2Mzk3YjQ4YmEyOWZhODI1NSIsImlhdCI6MTY3MDE2MDk0NX0.rNa9gKeVbUwDeFjlBxqOpVy5KOrPWgilxXmZpE0FkGYth token
             localStorage.setItem('token',json.AuthToken );
+            localStorage.setItem("admin" ,  json.admin);
             localStorage.setItem('status',"logout")
-            history('/')
-            alert("login successfully")
+            if(json.admin){
+              localStorage.setItem("role","Admin");
+              history("/")
+              alert("login successfully")
+            }else{
 
-        } else if(json.result === "admin"){
-          
-          localStorage.setItem('token',json.AuthToken );
-            localStorage.setItem('status',"logout")
-            localStorage.setItem("role","Admin");
-            history('/')
-            alert("login successfully")
-        }else
+              history('/')
+             
+            }
+
+        }
+        else
         {
           localStorage.setItem("status","login")
             alert("login unsuccessfully")

@@ -5,10 +5,10 @@ const AdminNav = () => {
     <>
     
     <li className="nav-item"  >
-          <Link className="nav-link " aria-current="page" style={{color:"white"}} to="/"> <i class="fa fa-plus" aria-hidden="true"></i> Add Products</Link>
+          <Link className="nav-link " aria-current="page" style={{color:"white"}} to="/admin">  Add Products</Link>
         </li> 
         <li className="nav-item" style={{color:"black"}}>
-          <Link className="nav-link " aria-current="page" style={{color:"white"}}  to="/ALLProduct"> <i class="fa fa-trash" aria-hidden="true"></i> remove Products</Link>
+          <Link className="nav-link " aria-current="page" style={{color:"white"}}  to="/allproduct"> <i class="fa fa-trash" aria-hidden="true"></i> remove Products</Link>
         </li>
         <li className="nav-item" style={{color:"black"}}>
           <Link className="nav-link " to="/outofstock" style={{color:"white"}}  ><i class="fa fa-info" aria-hidden="true"></i> Out-Of-Stock</Link>

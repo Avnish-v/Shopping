@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 
 const Admin = () => {
   const [name, setName] = useState('');
@@ -10,7 +10,6 @@ const Admin = () => {
   const [stock, setStock] = useState('');
   const [file, setFile] = useState();
   const [alertmsg ,setalertmsg] = useState("")
-  const [alertype , setalerttype] = useState("success")
 const handleSubmit = async (e) => {
 
   e.preventDefault();
@@ -28,8 +27,6 @@ const handleSubmit = async (e) => {
     for (let i = 0; i < file.length; i++) {
       formData.append('file', file[i]);
     }
-    // formData.append('file', file);
-    console.log(formData);
   
     let postData = await fetch('http://localhost:8080/api/shop/backend', {
       method: 'POST',
@@ -53,6 +50,7 @@ const handleSubmit = async (e) => {
     }
   }
 };
+
 
   return (
     <>

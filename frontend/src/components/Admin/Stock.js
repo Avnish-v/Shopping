@@ -1,5 +1,4 @@
 import {React,useEffect,useState} from 'react'
-import { Link } from 'react-router-dom'
 import Stockitem from './Stockitems'
 
 
@@ -33,7 +32,7 @@ const Stock = () => {
 
         </div>
         
-        {saveData.length !== 0 ? saveData.map(element => {
+        {saveData?.length !== 0 ? saveData?.map(element => {
           
           
 return <div className="card rounded-3 mb-4"key={element.productId} >
